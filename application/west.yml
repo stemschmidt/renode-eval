@@ -1,0 +1,18 @@
+# The west manifest file (west.yml) for the renode-eval application
+#
+manifest:
+  # This west.yml requires west 0.12s or later, because the "import"
+  # feature used below was introduced then.
+  version: 0.12
+
+  # "projects" is a list of git repositories which make up the NCS
+  # source code.
+  projects:
+    - name: zephyr
+      url: https://github.com/zephyrproject-rtos/zephyr
+      revision: v4.1.0
+      import: true
+
+  self:
+    # This repository should be cloned to application.
+    path: application

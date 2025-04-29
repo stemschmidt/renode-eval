@@ -1,0 +1,6 @@
+mach create
+
+machine LoadPlatformDescription @platforms/boards/nrf52840dk_nrf52840.repl 
+sysbus LoadELF @application/build/zephyr/zephyr.elf
+
+logLevel -1 sysbus.gpio0.led0
