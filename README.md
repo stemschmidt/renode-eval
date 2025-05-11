@@ -6,7 +6,7 @@
 
 **How to use:**
 
-***Build binary (for the nrf52840dk) ***
+***Build binary (for the nrf52840dk)***
 1. "git clone git@github.com:stemschmidt/renode-eval.git"
 2. "cd renode-eval"
 3. "code ." or open renode-eval in VSCode
@@ -24,8 +24,22 @@
 
 ***Run binary in Renode***
 1. "cd .." in the terminal in docker (return to root directory)
-2. enter "renode scripts/renode/blinkingLed.resc" -> this uses the nrf52840dk_nrf52840 board
+2. enter "renode scripts/renode/blinkingLed.resc" -> this uses the adafruit_feather_nrf52840 board
 3. at (machine-0) enter "start"
 4. to terminate, enter "pause" and then "q"
+
+***How to create the adafruit_feather_nrf52840.repl file***
+1. dts2repl application/build/zephyr/zephyr.dts.pre
+
+2. replace 
+a) clock: Miscellaneous.NRF_CLOCK @ sysbus 0x40000000
+    ->nvic0@0
+
+b) clock: Miscellaneous.NRF52840_CLOCK @ sysbus 0x40000000
+    ->nvic0@0
+3. remove
+a) usbd: USB.NRF_USBD @ sysbus 0x40027000
+    ->nvic0@39
+
 
 NOTE: There is an issue with the order in which the plugins are loaded. A warning appears asking you to reload the window. After reloading the window you will have to launch bash again: '$ bash'

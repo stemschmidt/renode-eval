@@ -1,6 +1,7 @@
 //devcontainer.json
 {
     "image": "zephyrprojectrtos/zephyr-build:v0.27.4",
+    "postAttachCommand": "./scripts/install_dts2repl.sh",
     "postStartCommand": "/bin/bash", // Configure tool-specific properties.
     "customizations": {
         // Configure properties specific to VS Code.
