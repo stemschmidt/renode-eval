@@ -1,7 +1,7 @@
 mach create
 
-machine LoadPlatformDescription @platforms/boards/nrf52840dk_nrf52840.repl 
+machine LoadPlatformDescription @scripts/renode/adafruit_feather_nrf52840.repl
 sysbus LoadELF @application/build/zephyr/zephyr.elf
 
 showAnalyzer sysbus.uart0
-logLevel -1 sysbus.gpio0.led0
+logLevel -1 sysbus.gpio1.led0
