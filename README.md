@@ -6,7 +6,7 @@
 
 **How to use:**
 
-***Build binary (for the nrf52840dk)***
+***Build binary (for the Adafruit Feather nRF52840 Express https://learn.adafruit.com/introducing-the-adafruit-nrf52840-feather)***
 1. "git clone git@github.com:stemschmidt/renode-eval.git"
 2. "cd renode-eval"
 3. "code ." or open renode-eval in VSCode
@@ -16,7 +16,7 @@
 7. "west update"
 8. "source zephyr/zephyr-env.sh"
 9. "cd application"
-10. "west build -b nrf52840dk/nrf52840" and wait for the build to finish...
+10. "west build -b adafruit_feather_nrf52840" and wait for the build to finish...
 
 ***Flash and debug on board***
 1. on the host, launch the JLinkGDBServer (e.g "JLinkGDBServerCLExe -if swd -device nRF52840_xxAA -vd")

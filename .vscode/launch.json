@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "showDevDebugOutput": true,
+    "configurations": [
+        {
+            "name": "Launch Firmware",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "external",
+            "gdbTarget": "host.docker.internal:2331",
+            "device": "nrf52840",
+            "interface": "swd",
+            "cwd": "${workspaceRoot}",
+            "executable": "application/build/zephyr/zephyr.elf",
+            "svdFile": "modules/hal/nordic/nrfx/mdk/nrf52840.svd",
+            "overrideLaunchCommands": [
+                "monitor reset 0",
+                "-target-download",
+                "monitor reset 0"
+            ],
+            "postLaunchCommands": [
+                "file application/build/zephyr/zephyr.elf"
+            ],
+            "overrideResetCommands": [
+                "monitor reset 0"
+            ],
+            "rtos": "Zephyr",
+            "runToEntryPoint": "main"
+        }
+    ]
+}
